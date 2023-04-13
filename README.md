@@ -1,17 +1,18 @@
 # Realtime-trending-coin-volumes-Binance
-A server running on Flask uses Blueprint to manage multiple sites at once.
+Processing data of 200k houses in HCMC, raw data after scraping from nhatot.vn is put into HDFS, then transform with Spark and load into redshift data warehouse. BI tool for data using Superset.
+
 ## Technology
-frontend: js. 
-backend: Python, Torch, Mongo, Mysql, GPTAPI, Flask.
+visualization: Superset
+backend: Python, Hadoop, Spark, S3, Redshift.
 
 ## Usage
-Start docker-compose
+
 ```
-pip install -r requirements.txt
-flask run
+
 ```
-Server run at http://*:5000/ 
+
 
 ## Demo
+https://house.vietdoo.engineer/
 
 ![Tên hình ảnh](./public/demo.jpg)
