@@ -23,7 +23,9 @@ hdfs_url = 'hdfs://localhost:9000/houses/'
 file_list = ['raw311222.json', 'raw100123.json', 'raw310323.json']
 
 def combineDf():
-    df = cleanDf(spark.read.json(hdfs_url + file_list[0]))
+    df = spark.read.json(hdfs_url + file_list[0])
+    df.printSchema()
+    df = cleanDf(df)
     for file_name in file_list[1:]:
         url = hdfs_url + file_name
         temp_df = spark.read.json(url)
@@ -40,4 +42,4 @@ df.printSchema()
 print("Số lượng bản ghi của dataframe kết quả:", df.count())
 
 
-df.write.json("hdfs://localhost:9000/data/houses.json")
+df.write.mode("overwrite").json("hdfs://localhost:9000/data/houses.json")
